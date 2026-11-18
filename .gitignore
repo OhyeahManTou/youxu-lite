@@ -1,0 +1,9 @@
+# 导出的项目文件属于使用者数据，不提交到公开仓库。
+*.json
+*.zip
+*.log
+.env
+.env.*
+node_modules/
+.DS_Store
+Thumbs.db

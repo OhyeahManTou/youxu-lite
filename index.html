@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="description" content="离线使用的需求拆分与排期工具。无需安装，项目文件保存在本机。">
+  <title>有序 · 轻量排期</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="model.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header class="app-header">
+    <a class="brand" href="#" aria-label="有序首页"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>有序<small>轻量排期</small></span></a>
+    <div class="file-actions"><button id="new-project" class="btn subtle">新建项目</button><button id="open-project" class="btn">打开项目</button><button id="save-project" class="btn dark">保存项目</button></div>
+  </header>
+  <div class="workspace">
+    <div class="navigation-row"><nav aria-label="工作页面" class="tabs"><button data-tab="overview" aria-current="page"><span>01</span>需求总览</button><button data-tab="tasks"><span>02</span>需求拆分</button><button data-tab="schedule"><span>03</span>需求排期</button></nav><span id="save-state" role="status"></span></div>
+    <div id="storage-warning" class="notice warning" hidden></div>
+    <div id="sample-notice" class="notice" hidden><span>这是虚构示例，可以直接编辑体验。正式使用时新建一个空白项目。</span><button class="text-btn" id="dismiss-sample" aria-label="关闭示例提示">知道了</button></div>
+    <main>
+      <div class="page-heading"><div><h1 id="page-title">需求总览</h1><p id="page-description"></p></div><button class="btn primary" id="add-requirement">＋ 新增需求</button></div>
+      <div class="workspace-tools"><div id="summary" class="summary"></div><label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="搜索需求、任务或处理人" aria-label="搜索需求、任务或处理人" maxlength="160"></label></div>
+      <div id="content"></div>
+    </main>
+    <footer>数据在本机处理，无账号、无联网服务。<span>浏览器暂存用于恢复；请定期点击“保存项目”，下载项目文件。</span></footer>
+  </div>
+  <dialog id="editor" aria-labelledby="dialog-title"></dialog>
+  <dialog id="confirmation" class="small-dialog" aria-labelledby="confirm-title"></dialog>
+  <input type="file" id="file-input" accept=".json,application/json" hidden>
+  <div id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
